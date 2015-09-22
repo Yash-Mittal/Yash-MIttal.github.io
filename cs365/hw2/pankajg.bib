@@ -1,0 +1,40 @@
+@inproceedings{vemulapalli-chellappa-13cvpr_kernel-learning-manifolds,
+  title={Kernel learning for extrinsic classification of manifold features},
+  author={Vemulapalli, Raviteja and Pillai, Jaishanker K and Chellappa, Rama},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2013 IEEE Conference on},
+  pages={1782--1789},
+  year={2013},
+  annote={
+
+Often in computer vision applications, features lie on Riemannian manifolds. Learning algorithms such as discriminant analysis, partial least squares, support vector machines, etc. cannot be applied directly to these features as they are non-Euclidean. We then map the manifolds to Euclidean spaces using kernels. Bad choice of kernels give poor results.
+
+Tn this paper, author addresses the issue of \textbf{kernel-learning}. The problem has been formulated as a convex optimization problem and solving it using multiple kernel learning approach.\\
+
+\textbf{Previous work} in the field was done using \textbf{Nearest Neighbour}(Nearest-neighbor classifier based on some appropriately defined distance or similarity measure), \textbf{Bayesian Framework}(Use the Bayesian framework by defining probability density functions on manifolds), \textbf{Euclidean Mapping}(Discriminative approaches like
+LDA, PLS, SVM, Boosting, etc., can be extended to manifolds by mapping the manifolds to Euclidean spaces)\\
+
+To learn a good kernel-classifier combination for features that lie on Riemannian manifolds, the following two criteria should be satisfied : 
+
+(i) Risk functional associated with the classifier in the mapped space should be minimized for good classification performance
+
+(ii) The mapping should preserve the underlying manifold structure. \\
+
+The above problem is hence represented as an optimization problem   \\
+\begin{equation}
+\textit{min } \lambda \Gamma_s(\mathcal{K}) + \Gamma_c(\mathcal{W}, \mathcal{K})   \\
+\end{equation}
+where $\Gamma_s$  corresponds to manifold structure and $\Gamma_c$ to classifier costs. $\lambda$ is the regularization parameter.
+
+Due to the superior generalization properties of SVM, it has been used as a classifier here. To preserve the manifold structure, we constrain the distances in the mapped space to be close to the manifold distances
+
+On combining both the classifier and the structure costs, the solution to kernel learning becomes solving a semi-definite programming problem. 
+In an SDP, both training and test data need to be present while learning the kernel matrix. Also solving SDP's are computationally expensive.
+
+Hence, instead of using standard solvers such as SeDuMi, we use MKL approach in which we parameterize the kernel as a linear combination of fixed base kernels. 
+
+The, thus obtained optimization problem can be efficiently solved using reduced gradient descent or or any other constrained convex optimization problem solver.
+
+The research can be extended to other classifiers other than SVM. Also the paper used kernel manifold-structure as a regularizer. Other regularizers can be used which can make better use of underlying manifold structure.
+
+-- Pankaj Gupta, pankajg, 2014
+}}
