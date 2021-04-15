@@ -1,3 +1,3 @@
-# Pankaj-Gupta.github.io
+# Yash-MIttal.github.io
 
-http://pankaj-gupta.github.io/
+http://Yash-MIttal.github.io/
